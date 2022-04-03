@@ -12,6 +12,7 @@ RUN apt update -y && \
 WORKDIR /project
 ADD . /project
 RUN npm install --no-audi && \
+    npm run lint:prod && \
     npm run build:prod && \
     rm -r node_modules
 
