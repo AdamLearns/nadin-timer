@@ -12,7 +12,7 @@ export class NadinLogoComponent {
   }
 
   public getTheme(): string {
-    return this.themeDeciderService.getTheme();
+    return this.themeDeciderService.theme;
   }
 
 
