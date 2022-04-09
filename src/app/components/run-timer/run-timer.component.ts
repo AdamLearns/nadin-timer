@@ -22,6 +22,7 @@ export class RunTimerComponent implements OnInit, OnDestroy {
   public ngOnInit(): void {
     this.targetTime = parseInt(this.route.snapshot.paramMap.get('until'), 10);
 
+    // noinspection TypeScriptValidateJSTypes
     this.timerTimer = timer(0, 100).subscribe(() => {
       const now: Date = new Date(Date.now());
       const date: Date = new Date(this.targetTime - now.getTime());
@@ -62,7 +63,7 @@ export class RunTimerComponent implements OnInit, OnDestroy {
 
     }
     audio.load();
-    audio.play();
+    audio.play().then(r => console.log(r));
   }
 
   private getWeightedRandom(): string {
