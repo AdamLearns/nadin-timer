@@ -1,13 +1,25 @@
 .all {
-  height: 100%;
-  width: auto;
+  height: 500px;
+  width: 450px;
   display: grid;
+  margin-top: 5em;
   justify-content: center;
   align-items: center;
   align-self: center;
   grid-template-rows: 1fr;
   grid-template-areas:
     "logo"
+}
+
+.app-logo {
+  //border-color: red;
+  //border-style: solid;
+  height: 500px;
+  width: 500px;
+  grid-area: logo;
+  display: flex;
+  justify-self: center;
+  text-align: center;
 }
 
 .logo {
@@ -28,25 +40,17 @@
   filter: drop-shadow(5px 5px 5px darkgray);
 }
 
-
 .easter-fence {
   display: block;
-  width: 555px;
+  width: 600px;
   height: 200px;
-  transform: translate(0, 225px);
+  transform: translate(0, 200px);
   filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.85));
 }
 
 .easter-rabbit {
   display: block;
-  width: 80px;
-  transform: translate(145px, -425px);
+  width: 125px;
+  transform: translate(150px, -380px);
   //filter: drop-shadow(5px 5px 5px darkgray);
 }
-//
-//.easter-rabbit {
-//  display: block;
-//  width: 200px;
-//  transform: translate(230px, -306px);
-//  //filter: drop-shadow(5px 5px 5px darkgray);
-//}

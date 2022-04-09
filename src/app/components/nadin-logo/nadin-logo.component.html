@@ -1,11 +1,9 @@
 <div class="all"
 >
-  <div class="logo"
-  >
-    <img src="../../assets/nadin-logo.gif"
+    <img [src]="'../../assets/app-logos/'+getAppLogo()"
          alt="nadin logo"
+         class="app-logo"
     />
-  </div>
 
   <div class="logo" [ngSwitch]="getTheme()">
     <div *ngSwitchCase="'Winter'">
@@ -28,4 +26,3 @@
     </div>
   </div>
 </div>
-

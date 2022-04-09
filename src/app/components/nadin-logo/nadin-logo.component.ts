@@ -11,6 +11,9 @@ export class NadinLogoComponent {
   constructor(private themeDeciderService: ThemeDeciderService) {
   }
 
+  public getAppLogo(): string {
+    return this.themeDeciderService.appLogo;
+  }
   public getTheme(): string {
     return this.themeDeciderService.theme;
   }

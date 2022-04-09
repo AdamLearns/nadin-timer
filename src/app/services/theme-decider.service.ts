@@ -5,32 +5,46 @@ import {Injectable} from '@angular/core';
 })
 
 export class ThemeDeciderService {
-  set theme(value: string) {
-    this._theme = value;
+  constructor() {
+    this.myAppLogo = 'nadin-logo.gif';
+    // this.myAppLogo = 'ldb.png';
   }
 
-  private _theme: string;
+  private myAppLogo: string;
 
+  set appLogo(value: string) {
+    this.myAppLogo = value;
+  }
+
+  get appLogo(): string {
+    return this.myAppLogo;
+  }
+
+  private myTheme: string;
+
+  set theme(value: string) {
+    this.myTheme = value;
+  }
 
   get theme(): string {
-    if (!this._theme) {
-      this._theme = this.generateRandomTheme();
+    if (!this.myTheme) {
+      this.myTheme = this.generateRandomTheme();
     }
-    return this._theme;
+    return this.myTheme;
   }
 
   public setIfValid(newTheme: string): void {
-    if (!newTheme){
+    if (!newTheme) {
       return;
     }
-    if (newTheme == 'Winter') {
-      this._theme = newTheme;
-    } else if (newTheme == 'Easter') {
-      this._theme = newTheme;
-    } else if (newTheme == 'Spring') {
-      this._theme = newTheme;
+    if (newTheme === 'Winter') {
+      this.myTheme = newTheme;
+    } else if (newTheme === 'Easter') {
+      this.myTheme = newTheme;
+    } else if (newTheme === 'Spring') {
+      this.myTheme = newTheme;
     } else {
-      console.log(`Invalid theme '${newTheme}' ignoring.`)
+      console.log(`Invalid theme '${newTheme}' ignoring.`);
     }
   }
 
