@@ -2,6 +2,7 @@
   height: 100vh;
   display: grid;
   justify-content: center;
+  align-content: center;
   align-items: center;
   align-self: center;
   grid-template-rows: 1fr auto auto auto 1fr;
@@ -17,7 +18,6 @@
   grid-area: logo;
   display: flex;
   justify-self: center;
-  text-align: center;
 }
 
 .time-absolute {

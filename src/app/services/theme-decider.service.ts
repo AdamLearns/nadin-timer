@@ -5,9 +5,8 @@ import {Injectable} from '@angular/core';
 })
 
 export class ThemeDeciderService {
+
   constructor() {
-    this.myAppLogo = 'nadin-logo.gif';
-    // this.myAppLogo = 'ldb.png';
   }
 
   private myAppLogo: string;
@@ -37,15 +36,45 @@ export class ThemeDeciderService {
     if (!newTheme) {
       return;
     }
-    if (newTheme === 'Winter') {
-      this.myTheme = newTheme;
-    } else if (newTheme === 'Easter') {
-      this.myTheme = newTheme;
-    } else if (newTheme === 'Spring') {
+
+    if ((newTheme === 'Easter')
+      || (newTheme === 'Spring')
+      || (newTheme === 'Summer')
+      || (newTheme === 'Winter')) {
       this.myTheme = newTheme;
     } else {
       console.log(`Invalid theme '${newTheme}' ignoring.`);
     }
+  }
+
+  set application(value: string) {
+    this._application = value;
+    switch (this.application.toLowerCase()) {
+      case 'nadin':
+        this.myAppLogo = 'nadin-logo.gif';
+        break;
+      case 'ldb':
+        this.myAppLogo = 'ldb.png';
+        break;
+      case 'vw':
+        this.myAppLogo = 'vw.png';
+        break;
+      default:
+        console.error(`Unknown application ${this.application}`);
+        break;
+    }
+    console.log(this.application.toLowerCase());
+    console.log(this.myAppLogo);
+  }
+
+  private _application: string;
+
+
+  get application(): string {
+    if (!this._application) {
+      this._application = 'Nadin';
+    }
+    return this._application;
   }
 
   private generateRandomTheme(): string {
@@ -55,6 +84,8 @@ export class ThemeDeciderService {
       return 'Easter';
     } else if (now.getMonth() >= 11 || now.getMonth() <= 0) {
       return 'Winter';
+    } else if (now.getMonth() >= 5 && now.getMonth() <= 9) {
+      return 'Summer';
     }
     return 'Spring';
   }

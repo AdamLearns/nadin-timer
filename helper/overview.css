@@ -1,0 +1,59 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.grid2x2 {
+  min-height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.grid2x2 > div {
+  display: flex;
+  flex-basis: calc(32% - 0.1em);
+  justify-content: center;
+  flex-direction: column;
+}
+
+.grid2x2 > div > div {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  height: 100%;
+}
+
+iframe {
+  width: 100%;
+  zoom: 50%;
+}
+
+.box {
+  margin: 1em;
+  border-style: solid;
+  border-color: black;
+}
+
+.box1 {
+  background-color: red;
+}
+
+.box2 {
+  background-color: orange;
+}
+
+.box3 {
+  background-color: purple;
+}
+
+.box4 {
+  background-color: grey;
+}
+.box5 {
+  background-color: lightblue;
+}
+
+.box6 {
+  background-color: lightgreen;
+}
