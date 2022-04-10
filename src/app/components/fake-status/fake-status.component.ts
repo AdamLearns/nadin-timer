@@ -8,6 +8,7 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
+import {ThemeDeciderService} from "../../services/theme-decider.service";
 
 @Component({
   selector: 'app-fake-status',
@@ -26,35 +27,11 @@ import {
   ],
 })
 export class FakeStatusComponent implements OnInit, OnDestroy {
-  private possibleTexts: string[] = [
-    'Granting admin permissions to developers',
-    'Upgrading servers to NADIN 18.6',
-    'Dropping databases from backups',
-    'Answering emails with Lorem Ipsum generator',
-    'Setting customer names to phonebook of London',
-    'Randomizing prices with e^3*y+42€',
-    'Downloading and printing cloud',
-    'Schedule MS Teams meeting with colleagues',
-    'Plan new bugs for next release',
-    'Ordering pizza for next break',
-    'Feeding coffee to coding monkeys',
-    'Deploying new version announced tomorrow',
-    'Cloud performance might be reduced due to fast winds …',
-    'Some servers in the cloud are unavaiable due to heavy storms …',
-    'Removing caches to save storage',
-    'Splitting list to prepare for two parallel streams',
-    'The NADIN Modules lived together in harmony but everything changed when the Fleet Agency Business attacked',
-    'Never argue with the data',
-    'Debugging you must',
-    'Nothing shocks me – I fix bugs in NADIN',
-    'One NADIN to rule them all',
-    'Data cloud is full, please switch to local data storage solutions',
-  ];
   private usedTexts: string[] = [];
   private tickerTimer: Subscription;
   public currentText: string = '';
 
-  constructor() {
+  constructor(private themeDeciderService:ThemeDeciderService) {
   }
 
   public ngOnDestroy(): void {
@@ -64,11 +41,11 @@ export class FakeStatusComponent implements OnInit, OnDestroy {
   }
 
   public setNewText(): void {
-    if (this.usedTexts.length == this.possibleTexts.length) {
+    if (this.usedTexts.length == this.themeDeciderService.possibleFakeStatusses.length) {
       this.usedTexts = [];
     }
     this.currentText = _.shuffle(
-      this.possibleTexts.filter((txt) => this.usedTexts.indexOf(txt) == -1)
+      this.themeDeciderService.possibleFakeStatusses.filter((txt) => this.usedTexts.indexOf(txt) == -1)
     ).pop();
     this.usedTexts.push(this.currentText);
   }

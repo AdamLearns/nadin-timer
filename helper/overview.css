@@ -12,7 +12,7 @@ html, body {
 
 .grid2x2 > div {
   display: flex;
-  flex-basis: calc(32% - 0.1em);
+  flex-basis: calc(19% - 0.1em);
   justify-content: center;
   flex-direction: column;
 }
@@ -31,8 +31,21 @@ iframe {
 
 .box {
   margin: 1em;
+}
+
+.app1 {
   border-style: solid;
-  border-color: black;
+  border-color: blue;
+}
+
+.app2 {
+  border-style: solid;
+  border-color: darkgreen;
+}
+
+.app3 {
+  border-style: solid;
+  border-color: darkviolet;
 }
 
 .box1 {
@@ -50,6 +63,7 @@ iframe {
 .box4 {
   background-color: grey;
 }
+
 .box5 {
   background-color: lightblue;
 }

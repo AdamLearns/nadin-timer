@@ -2,6 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Subscription, timer} from 'rxjs';
 import * as chance from 'chance';
+import {ThemeDeciderService} from "../../services/theme-decider.service";
 
 @Component({
   selector: 'app-run-timer',
@@ -16,10 +17,12 @@ export class RunTimerComponent implements OnInit, OnDestroy {
   private targetTime: number;
   private alarmTriggered: boolean;
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, private themeDeciderService: ThemeDeciderService) {
   }
 
   public ngOnInit(): void {
+    this.themeDeciderService.setIfValid(this.route.snapshot.paramMap.get('theme'));
+    this.themeDeciderService.application = this.route.snapshot.paramMap.get('application');
     this.targetTime = parseInt(this.route.snapshot.paramMap.get('until'), 10);
 
     // noinspection TypeScriptValidateJSTypes

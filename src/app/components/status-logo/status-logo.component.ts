@@ -7,6 +7,7 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
+import {ThemeDeciderService} from "../../services/theme-decider.service";
 
 @Component({
   selector: 'app-status-logo',
@@ -30,11 +31,18 @@ export class StatusLogoComponent {
   @Input()
   public minutes: string;
 
+
+  constructor(private themeDeciderService:ThemeDeciderService) {
+  }
   public isDone(): boolean {
     return this.seconds == '00' && this.minutes == '00';
   }
 
   public isSecondsEven() {
     return +this.seconds % 2;
+  }
+
+  public finishIcon() {
+    return this.themeDeciderService.appLogoFinished;
   }
 }
