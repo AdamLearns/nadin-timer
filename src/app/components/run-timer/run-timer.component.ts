@@ -14,7 +14,8 @@ export class RunTimerComponent implements OnInit, OnDestroy {
   public seconds = '00';
   public minutes = '00';
   private timerTimer: Subscription;
-  private targetTime: number;
+  public targetTime: number;
+  public  startTime: number;
   private alarmTriggered: boolean;
 
   constructor(private route: ActivatedRoute, private themeDeciderService: ThemeDeciderService) {
@@ -24,6 +25,7 @@ export class RunTimerComponent implements OnInit, OnDestroy {
     this.themeDeciderService.setIfValid(this.route.snapshot.paramMap.get('theme'));
     this.themeDeciderService.application = this.route.snapshot.paramMap.get('application');
     this.targetTime = parseInt(this.route.snapshot.paramMap.get('until'), 10);
+    this.startTime = parseInt(this.route.snapshot.paramMap.get('startTime'), 10);
 
     // noinspection TypeScriptValidateJSTypes
     this.timerTimer = timer(0, 100).subscribe(() => {

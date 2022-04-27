@@ -18,6 +18,10 @@ export class TimeSelectComponent implements AfterViewInit {
   ) {
   }
 
+  get showDebug(): boolean {
+    return false;
+  }
+
   public untilQuarterPast(): void {
     const now = new Date();
     let targetTime: number;
@@ -89,10 +93,11 @@ export class TimeSelectComponent implements AfterViewInit {
     this.introService.firstUserOverview();
   }
 
-  private startTimer(targetTime:number) {
+  private startTimer(targetTime: number) {
     this.router.navigate(
       [
         '/run', {
+        startTime: Date.now(),
         until: targetTime,
         application: this.themeDeciderService.application,
         theme: this.themeDeciderService.theme

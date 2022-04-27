@@ -1,3 +1,9 @@
+<app-timer-progress
+  class="progress-timer"
+  [fromTime]="this.startTime"
+  [toTime]="this.targetTime"
+></app-timer-progress>
+
 <div class="timer">
   <span class="time minutes">{{ minutes }}</span>
   <app-status-logo
@@ -18,3 +24,4 @@
     <fa-icon [icon]="['fas', 'history']"></fa-icon>
   </a>
 </div>
+

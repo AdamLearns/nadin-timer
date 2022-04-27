@@ -7,15 +7,15 @@
   <div class="time-absolute"
        id="userguide-absolute-times"
   >
-<!--    <button-->
-<!--      *ngIf="!showCustomPanel"-->
-<!--      mat-raised-button-->
-<!--      matTooltip="5 minuten ab jetzt"-->
-<!--      (click)="startTimerMinutes(0.1)"-->
-<!--      class="time"-->
-<!--    >-->
-<!--      DEV-->
-<!--    </button>-->
+    <button
+      *ngIf="!showCustomPanel && showDebug"
+      mat-raised-button
+      matTooltip="5 minuten ab jetzt"
+      (click)="startTimerMinutes(0.1)"
+      class="time"
+    >
+      DEV
+    </button>
 
     <button
       *ngIf="!showCustomPanel"
