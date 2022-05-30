@@ -8,7 +8,7 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
-import {ThemeDeciderService} from "../../services/theme-decider.service";
+import {ThemeDeciderService} from '../../services/theme-decider.service';
 
 @Component({
   selector: 'app-fake-status',
@@ -17,10 +17,10 @@ import {ThemeDeciderService} from "../../services/theme-decider.service";
   animations: [
     trigger('updatedText', [
       transition('* => *', [
-        //reset
+        // reset
         animate('0s', keyframes([style({transform: 'translateX(-10%)'})])),
         animate('20s', keyframes([style({transform: 'translateX(100%)'})])),
-        //pause
+        // pause
         animate('30s', keyframes([style({transform: 'translateX(100%)'})])),
       ]),
     ]),
@@ -29,9 +29,9 @@ import {ThemeDeciderService} from "../../services/theme-decider.service";
 export class FakeStatusComponent implements OnInit, OnDestroy {
   private usedTexts: string[] = [];
   private tickerTimer: Subscription;
-  public currentText: string = '';
+  public currentText = '';
 
-  constructor(private themeDeciderService:ThemeDeciderService) {
+  constructor(private themeDeciderService: ThemeDeciderService) {
   }
 
   public ngOnDestroy(): void {
@@ -41,11 +41,11 @@ export class FakeStatusComponent implements OnInit, OnDestroy {
   }
 
   public setNewText(): void {
-    if (this.usedTexts.length == this.themeDeciderService.possibleFakeStatusses.length) {
+    if (this.usedTexts.length === this.themeDeciderService.possibleFakeStatusses.length) {
       this.usedTexts = [];
     }
     this.currentText = _.shuffle(
-      this.themeDeciderService.possibleFakeStatusses.filter((txt) => this.usedTexts.indexOf(txt) == -1)
+      this.themeDeciderService.possibleFakeStatusses.filter((txt) => this.usedTexts.indexOf(txt) === -1)
     ).pop();
     this.usedTexts.push(this.currentText);
   }
