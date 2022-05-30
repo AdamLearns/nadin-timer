@@ -11,6 +11,7 @@ export class ThemeDeciderService {
   }
 
   private myAppLogo: string;
+  public application: string;
 
   set appLogo(value: string) {
     this.myAppLogo = value;
