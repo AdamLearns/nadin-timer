@@ -1,58 +1,33 @@
 <div class="all"
 >
-  <img [src]="'../../assets/app-logos/'+getAppLogo()"
-       alt="nadin logo"
-       class="app-logo"
-  />
+    <img [src]="'../../assets/app-logos/'+getAppLogo()"
+         alt="nadin logo"
+         class="app-logo"
+    />
 
-  <span class="logo" [ngSwitch]="getTheme()">
-    <span *ngSwitchCase="'Summer'">
-      <div
-        class="decoration summer-beach"
-      >
-        <img src="../../assets/season/summer/beach.png" alt="nadin logo" class="image"/>
-      </div>
-      <div
-        class="decoration summer-sun"
-      >
-        <img src="../../assets/season/summer/sun.png" alt="nadin logo" class="image"/>
-      </div>
-      <div
-        class="decoration summer-surfer"
-      >
-        <img src="../../assets/season/summer/surfer.png" alt="nadin logo" class="image"/>
-      </div>
-      <div
-        class="decoration summer-boat"
-      >
-        <img src="../../assets/season/summer/boat.png" alt="nadin logo" class="image"/>
-      </div>
-    </span>
-    <span *ngSwitchCase="'Winter'">
-      <div
-        class="decoration winter-christmas-hat"
-      >
-      <img src="../../assets/christmas-hat-png.png" alt="nadin logo" class="image"/>
-      </div>
-    </span>
-    <span *ngSwitchCase="'Spring'">
-      <div
-        class="decoration spring-flowers"
-      >
-      <img src="../../assets/banner-flowers.png" alt="nadin logo" class="image"/>
-      </div>
-    </span>
-    <span *ngSwitchCase="'Easter'">
-      <div
-        class="decoration easter-fence"
-      >
-      <img src="../../assets/season/easter/fence.png" class="image"/>
-      </div>
-      <div
-        class="decoration easter-rabbit"
-      >
-      <img src="../../assets/season/easter/rabbit.jpg" class="image"/>
-      </div>
-    </span>
-  </span>
+  <div class="logo" [ngSwitch]="getTheme()">
+    <div *ngSwitchCase="'Winter'">
+      <img src="../../assets/christmas-hat-png.png" alt="nadin logo"
+           class="christmas-hat"
+      />
+    </div>
+    <div *ngSwitchCase="'Spring'">
+      <img src="../../assets/banner-flowers.png" alt="nadin logo"
+           class="banner-flowers"
+      />
+    </div>
+    <div *ngSwitchCase="'Summer'">
+      <img src="../../assets/banner-flowers.png" alt="nadin logo"
+           class="banner-flowers"
+      />
+    </div>
+    <div *ngSwitchCase="'Easter'">
+      <img src="../../assets/season/easter/fence.png"
+           class="easter-fence"
+      />
+      <img src="../../assets/season/easter/rabbit.jpg"
+           class="easter-rabbit"
+      />
+    </div>
+  </div>
 </div>
