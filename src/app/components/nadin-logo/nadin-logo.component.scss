@@ -54,3 +54,36 @@
   transform: translate(150px, -380px);
   //filter: drop-shadow(5px 5px 5px darkgray);
 }
+
+.summer-beach {
+  width: 300px;
+  height: 200px;
+  transform: translate(-120px, 220px);
+  filter: drop-shadow(5px 5px 5px darkgray);
+}
+
+.summer-sun {
+  width: 200px;
+  height: 200px;
+  left: unset;
+  right: 0;
+  transform: translate(50px, -150px);
+  filter: drop-shadow(5px 5px 5px darkgray);
+}
+
+.summer-surfer {
+  width: 20px;
+  height: 36px;
+  transform: translate(75px, -396px);
+  filter: drop-shadow(5px 5px 5px darkgray);
+}
+
+.summer-boat {
+  width: 190px;
+  height: 100px;
+  left: unset;
+  right: 0;
+  transform: translate(250px, 120px) scaleY(1.5) scaleX(1.15);
+  filter: drop-shadow(5px 5px 5px darkgray);
+}
+

@@ -1,9 +1,9 @@
 <div class="all"
 >
-    <img [src]="'../../assets/app-logos/'+getAppLogo()"
-         alt="nadin logo"
-         class="app-logo"
-    />
+  <img [src]="'../../assets/app-logos/'+getAppLogo()"
+       alt="nadin logo"
+       class="app-logo"
+  />
 
   <div class="logo" [ngSwitch]="getTheme()">
     <div *ngSwitchCase="'Winter'">
@@ -17,9 +17,14 @@
       />
     </div>
     <div *ngSwitchCase="'Summer'">
-      <img src="../../assets/banner-flowers.png" alt="nadin logo"
-           class="banner-flowers"
-      />
+<!--      <img src="../../assets/banner-flowers.png" alt="nadin logo"-->
+<!--           class="banner-flowers"-->
+<!--      />-->
+      <img src="../../assets/season/summer/beach.png" alt="nadin logo" class="decoration summer-beach"/>
+      <img src="../../assets/season/summer/sun.png" alt="nadin logo" class="decoration summer-sun"/>
+      <img src="../../assets/season/summer/surfer.png" alt="nadin logo" class="decoration summer-surfer"/>
+      <img src="../../assets/season/summer/boat.png" alt="nadin logo" class="decoration summer-boat"/>
+
     </div>
     <div *ngSwitchCase="'Easter'">
       <img src="../../assets/season/easter/fence.png"
