@@ -9,6 +9,9 @@
 * sun https://flyclipart.com/download-png#sun-shining-png-hd-transparent-sun-shining-hd-images-223275.png
 * surfer https://de.freepik.com/vektoren-kostenlos/skizzen-von-menschen-die-zum-strand-gehen_23714616.htm#query=surf&position=21&from_view=search
 * boat https://www.freepik.com/free-vector/seals-wooden-boat-cartoon-style_24464872.htm#query=Seal%20Cartoon%20boat&position=0&from_view=search
+* autumn
+  * leaves https://www.pngwing.com/en/free-png-btztk
+  * squirrel https://www.pngwing.com/en/free-png-dktcd
 * 
 ## Sounds
 * Evil_Laugh_1-Timothy https://soundbible.com/grab.php?id=2096&type=mp3

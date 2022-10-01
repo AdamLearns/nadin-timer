@@ -87,3 +87,19 @@
   filter: drop-shadow(5px 5px 5px darkgray);
 }
 
+.autumn-leaves-bottom {
+  height: 405px;
+  width: 550px;
+  left: unset;
+  right: 0;
+  transform: translate(-10px, 60px);
+  filter: drop-shadow(5px 5px 5px #962c00);
+}
+
+.autumn-squirrel {
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  transform: translate(-410px, -90px);
+  filter: drop-shadow(2px -2px 2px darkgray);
+}
