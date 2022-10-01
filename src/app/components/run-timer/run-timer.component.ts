@@ -51,9 +51,6 @@ export class RunTimerComponent implements OnInit, OnDestroy {
 
     const rnd = this.getWeightedRandom();
     switch (rnd) {
-      case 'laughter':
-        audio.src = '../../assets/sounds/Evil_Laugh_1-Timothy.mp3';
-        break;
       case 'whistle':
         audio.src = '../../assets/sounds/Whistling.mp3';
         break;
@@ -72,7 +69,7 @@ export class RunTimerComponent implements OnInit, OnDestroy {
   }
 
   private getWeightedRandom(): string {
-    return chance().weighted(['laughter', 'whistle', 'alarm', 'bell'], [1, 1, 5, 1]);
+    return chance().weighted(['whistle', 'alarm', 'bell'], [1, 5, 1]);
   }
 
   public ngOnDestroy(): void {
