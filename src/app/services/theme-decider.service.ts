@@ -131,6 +131,8 @@ export class ThemeDeciderService {
           'The NADIN Modules lived together in harmony but everything changed when the Fleet Agency Business attacked',
           'Never argue with the data',
           'Debugging you must',
+          '#blameLeonie',
+          'Mark non-OKAPI-topics as OKAPI-requirement',
           'Nothing shocks me – I fix bugs in NADIN',
           'One NADIN to rule them all',
           'Data cloud is full, please switch to local data storage solutions',
