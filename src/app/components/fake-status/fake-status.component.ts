@@ -18,10 +18,10 @@ import {ThemeDeciderService} from '../../services/theme-decider.service';
     trigger('updatedText', [
       transition('* => *', [
         // reset
-        animate('0s', keyframes([style({transform: 'translateX(-10%)'})])),
-        animate('20s', keyframes([style({transform: 'translateX(100%)'})])),
+        animate('0s', keyframes([style({transform: 'translateX(100%)'})])),
+        animate('30s', keyframes([style({transform: 'translateX(-20%)'})])),
         // pause
-        animate('30s', keyframes([style({transform: 'translateX(100%)'})])),
+        animate('40s', keyframes([style({transform: 'translateX(-1000%)'})])),
       ]),
     ]),
   ],
