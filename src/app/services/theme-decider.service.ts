@@ -101,6 +101,8 @@ export class ThemeDeciderService {
       return 'Autumn';
     } else if (now.getMonth() >= 11 || now.getMonth() <= 0) {
       return 'Winter';
+    } else if (now.getMonth() < 3) {
+      return 'Spring';
     } else if (now.getMonth() >= 4 || now.getMonth() <= 9) {
       return 'Summer';
     }
