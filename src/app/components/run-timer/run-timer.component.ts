@@ -46,6 +46,10 @@ export class RunTimerComponent implements OnInit, OnDestroy {
     });
   }
 
+  public triggerAlarm(): void {
+    this.playAudio();
+  }
+
   public playAudio(): void {
     const audio = new Audio();
 
@@ -69,7 +73,7 @@ export class RunTimerComponent implements OnInit, OnDestroy {
   }
 
   private getWeightedRandom(): string {
-    return chance().weighted(['whistle', 'alarm', 'bell'], [1, 5, 1]);
+    return chance().weighted(['whistle', 'alarm', 'bell'], [1, 5, 2]);
   }
 
   public ngOnDestroy(): void {

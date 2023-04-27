@@ -10,7 +10,7 @@ import {
   FaIconLibrary,
   FontAwesomeModule,
 } from '@fortawesome/angular-fontawesome';
-import {faClock, faHistory} from '@fortawesome/free-solid-svg-icons';
+import {faBullhorn, faClock, faHistory} from '@fortawesome/free-solid-svg-icons';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
@@ -46,6 +46,6 @@ import {TimerProgressComponent} from "./components/timer-progress/timer-progress
 })
 export class AppModule {
   constructor(private library: FaIconLibrary) {
-    library.addIcons(faClock, faHistory);
+    library.addIcons(faClock, faHistory, faBullhorn);
   }
 }
