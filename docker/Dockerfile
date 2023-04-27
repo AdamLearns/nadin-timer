@@ -1,4 +1,4 @@
-FROM node:16.12.0-stretch as buildstep
+FROM node:20 as buildstep
 RUN mkdir -p /project/
 RUN mkdir -p /project/dist/nadin-timer
 
