@@ -41,11 +41,11 @@ export class FakeStatusComponent implements OnInit, OnDestroy {
   }
 
   public setNewText(): void {
-    if (this.usedTexts.length === this.themeDeciderService.possibleFakeStatusses.length) {
+    if (this.usedTexts.length === this.themeDeciderService.possibleFakeStatus.length) {
       this.usedTexts = [];
     }
     this.currentText = _.shuffle(
-      this.themeDeciderService.possibleFakeStatusses.filter((txt) => this.usedTexts.indexOf(txt) === -1)
+      this.themeDeciderService.possibleFakeStatus.filter((txt) => this.usedTexts.indexOf(txt) === -1)
     ).pop();
     this.usedTexts.push(this.currentText);
   }
