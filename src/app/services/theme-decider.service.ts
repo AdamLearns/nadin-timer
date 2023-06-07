@@ -115,25 +115,7 @@ export class ThemeDeciderService {
     switch (this.application.toLowerCase()) {
       case 'nadin':
         return [
-          'Granting admin permissions to developers',
-          'Upgrading servers to NADIN 18.6',
-          'Dropping databases from backups',
-          'Answering emails with Lorem Ipsum generator',
-          'Setting customer names to phonebook of London',
-          'Randomizing prices with e^3*y+42€',
-          'Downloading and printing cloud',
-          'Schedule MS Teams meeting with colleagues',
-          'Plan new bugs for next release',
-          'Ordering pizza for next break',
-          'Feeding coffee to coding monkeys',
-          'Deploying new version announced tomorrow',
-          'Cloud performance might be reduced due to fast winds …',
-          'Some servers in the cloud are unavaiable due to heavy storms …',
-          'Removing caches to save storage',
-          'Splitting list to prepare for two parallel streams',
-          'The NADIN Modules lived together in harmony but everything changed when the Fleet Agency Business attacked',
-          'Never argue with the data',
-          'Debugging you must',
+          '',
         ];
       case 'ldb':
         return [
