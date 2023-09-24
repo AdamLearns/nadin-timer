@@ -1,6 +1,27 @@
 <mat-toolbar>
   <span class="example-spacer"></span>
-  <span (click)="changeLanguage('en')" class="fi fi-gb translation" ></span>
-  <span (click)="changeLanguage('de')" class="fi fi-de translation"></span>
-  <span (click)="changeLanguage('cn')" class="fi fi-cn translation"></span>
+  <span
+    (click)="changeLanguage('en')"
+    class="fi fi-gb translation"
+    [ngClass]="{
+    'selected' : isLanguage('en'),
+    'unselected' : !isLanguage('en')
+    }"
+  ></span>
+  <span
+    (click)="changeLanguage('de')"
+    class="fi fi-de translation"
+    [ngClass]="{
+    'selected' : isLanguage('de'),
+    'unselected' : !isLanguage('de')
+    }"
+  ></span>
+  <span
+    (click)="changeLanguage('cn')"
+    class="fi fi-cn translation"
+    [ngClass]="{
+    'selected' : isLanguage('cn'),
+    'unselected' : !isLanguage('cn')
+    }"
+  ></span>
 </mat-toolbar>

@@ -3,6 +3,7 @@
   [fromTime]="this.startTime"
   [toTime]="this.targetTime"
 ></app-timer-progress>
+x{{themeDeciderService.language}}x
 
 <div class="timer">
   <span class="time minutes">{{ minutes }}</span>
@@ -30,6 +31,7 @@
     <fa-icon [icon]="['fas', 'history']"></fa-icon>
   </a>
 </div>
+
 
 <div class="alarmTrigger" matTooltip="manually trigger alarm"
      (click)="triggerAlarm()"

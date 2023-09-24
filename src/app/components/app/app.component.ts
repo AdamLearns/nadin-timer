@@ -2,7 +2,6 @@ import {Component, OnDestroy, OnInit, ViewEncapsulation} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Subscription} from 'rxjs';
 import {ThemeDeciderService} from "../../services/theme-decider.service";
-import {TranslocoService} from "@ngneat/transloco";
 
 @Component({
   selector: 'app-root',

@@ -8,6 +8,11 @@ import {TranslocoService} from "@ngneat/transloco";
 })
 export class SettingsToolbarComponent {
   constructor(private translate: TranslocoService) {
+
+  }
+
+  public isLanguage(target: string): boolean {
+    return this.translate.getActiveLang() === target;
   }
 
   public changeLanguage(target: string): void {

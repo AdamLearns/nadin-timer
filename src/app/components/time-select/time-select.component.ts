@@ -100,7 +100,8 @@ export class TimeSelectComponent implements AfterViewInit {
         startTime: Date.now(),
         until: targetTime,
         application: this.themeDeciderService.application,
-        theme: this.themeDeciderService.theme
+        theme: this.themeDeciderService.theme,
+        lang: this.themeDeciderService.language
       }
       ]
     );

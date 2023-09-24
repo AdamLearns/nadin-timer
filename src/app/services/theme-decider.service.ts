@@ -8,13 +8,12 @@ import {TranslocoService} from "@ngneat/transloco";
 
 export class ThemeDeciderService {
   get language(): string {
-    return this.myLanguage;
+    return this.translate.getActiveLang();
   }
 
   set language(value: string) {
-    this.myLanguage = value;
-    if (this.myLanguage){
-      this.translate.setActiveLang(this.myLanguage);
+    if (value) {
+      this.translate.setActiveLang(value);
     }
   }
 
@@ -33,7 +32,6 @@ export class ThemeDeciderService {
   }
 
   public myAppLogoFinished: string = '';
-  private myLanguage: string = 'en';
   private myAppLogo: string;
   private myApplication: string = '';
 
