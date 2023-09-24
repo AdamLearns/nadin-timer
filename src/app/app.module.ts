@@ -11,13 +11,13 @@ import {
   FontAwesomeModule,
 } from '@fortawesome/angular-fontawesome';
 import {faBullhorn, faClock, faHistory} from '@fortawesome/free-solid-svg-icons';
-import {MatTooltipModule} from '@angular/material/tooltip';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
+import {MatLegacyTooltipModule as MatTooltipModule} from '@angular/material/legacy-tooltip';
+import {MatLegacyFormFieldModule as MatFormFieldModule} from '@angular/material/legacy-form-field';
+import {MatLegacyInputModule as MatInputModule} from '@angular/material/legacy-input';
 import {NadinLogoComponent} from './components/nadin-logo/nadin-logo.component';
 import {FakeStatusComponent} from './components/fake-status/fake-status.component';
 import {FormsModule} from '@angular/forms';
-import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatLegacyProgressBarModule as MatProgressBarModule} from '@angular/material/legacy-progress-bar';
 import {TimerProgressComponent} from "./components/timer-progress/timer-progress.component";
 
 @NgModule({
