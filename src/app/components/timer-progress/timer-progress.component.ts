@@ -9,14 +9,14 @@ import {ThemeDeciderService} from "../../services/theme-decider.service";
 })
 export class TimerProgressComponent implements OnInit, OnDestroy {
   @Input()
-  public fromTime: number;
+  public fromTime: number=0;
 
-  public duration: number;
-  public progressPercentage: number;
+  public duration: number=100;
+  public progressPercentage: number=0;
 
   @Input()
-  public toTime: number;
-  private timerTimer: Subscription;
+  public toTime: number=1000;
+  private timerTimer?: Subscription=undefined;
 
   constructor(private themeDeciderService: ThemeDeciderService) {
   }

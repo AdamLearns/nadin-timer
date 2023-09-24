@@ -27,9 +27,9 @@ import {ThemeDeciderService} from '../../services/theme-decider.service';
 })
 export class StatusLogoComponent {
   @Input()
-  public seconds: string;
+  public seconds: string='';
   @Input()
-  public minutes: string;
+  public minutes: string='';
 
 
   constructor(private themeDeciderService: ThemeDeciderService) {

@@ -1,11 +1,11 @@
 import {Injectable} from '@angular/core';
-import * as introJs from 'intro.js/intro.js';
+import * as introJs from 'intro.js';
 
 @Injectable({
   providedIn: 'root'
 })
 export class IntroJsService {
-  private introJS = null;
+  private introJS?:introJs.IntroJs;
   // tslint:disable-next-line:variable-name
   private _historicData: {
     introExecuted: boolean,
@@ -13,7 +13,7 @@ export class IntroJsService {
   };
 
   constructor() {
-    this._historicData = JSON.parse(localStorage.getItem('intro'));
+    this._historicData = JSON.parse(localStorage.getItem('intro')!);
     if (!this._historicData) {
       this._historicData = {introExecuted: false, customTimeExecuted: false};
     }

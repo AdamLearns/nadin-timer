@@ -10,7 +10,7 @@ import {ThemeDeciderService} from "../../services/theme-decider.service";
   encapsulation: ViewEncapsulation.None
 })
 export class AppComponent implements OnInit, OnDestroy {
-  private subscriptionParameter: Subscription;
+  private subscriptionParameter?: Subscription;
 
   constructor(private route: ActivatedRoute,
               private themeDeciderService: ThemeDeciderService) {
@@ -27,8 +27,8 @@ export class AppComponent implements OnInit, OnDestroy {
     this.subscriptionParameter = this.route.queryParams
       .subscribe((params) => {
         // console.log(params);
-          this.themeDeciderService.setIfValid(params.theme as string);
-          this.themeDeciderService.application = params.application as string;
+          this.themeDeciderService.setIfValid(params["theme"] as string);
+          this.themeDeciderService.application = params["application"] as string;
         }
       );
   }

@@ -6,13 +6,13 @@ import {Title} from "@angular/platform-browser";
 })
 
 export class ThemeDeciderService {
-  constructor(private titleService:Title) {
+  constructor(private titleService: Title) {
     this.myAppLogo = 'Nadin_Logo.svg';
   }
 
   private myAppLogo: string;
-  public myAppLogoFinished: string;
-  private myApplication: string;
+  public myAppLogoFinished: string = '';
+  private myApplication: string = '';
 
   get appLogoFinished(): string {
     return this.myAppLogoFinished;
@@ -26,7 +26,7 @@ export class ThemeDeciderService {
     return this.myAppLogo;
   }
 
-  private myTheme: string;
+  private myTheme: string = '';
 
   set theme(value: string) {
     this.myTheme = value;
@@ -135,5 +135,6 @@ export class ThemeDeciderService {
         console.error(`Unknown application ${this.application}`);
         break;
     }
+    return [];
   }
 }

@@ -28,8 +28,8 @@ import {ThemeDeciderService} from '../../services/theme-decider.service';
 })
 export class FakeStatusComponent implements OnInit, OnDestroy {
   private usedTexts: string[] = [];
-  private tickerTimer: Subscription;
-  public currentText = '';
+  private tickerTimer?: Subscription;
+  public currentText:string|undefined = '';
 
   constructor(private themeDeciderService: ThemeDeciderService) {
   }
@@ -47,7 +47,9 @@ export class FakeStatusComponent implements OnInit, OnDestroy {
     this.currentText = _.shuffle(
       this.themeDeciderService.possibleFakeStatus.filter((txt) => this.usedTexts.indexOf(txt) === -1)
     ).pop();
-    this.usedTexts.push(this.currentText);
+    if (this.currentText != null) {
+      this.usedTexts.push(this.currentText);
+    }
   }
 
   public ngOnInit(): void {
