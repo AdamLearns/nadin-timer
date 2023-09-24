@@ -1,14 +1,13 @@
 import {Injectable} from '@angular/core';
+import {Title} from "@angular/platform-browser";
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class ThemeDeciderService {
-  constructor() {
+  constructor(private titleService:Title) {
     this.myAppLogo = 'Nadin_Logo.svg';
-    // this.myAppLogo = 'nadin-logo.gif';
-    // this.myAppLogo = 'ldb.png';
   }
 
   private myAppLogo: string;
@@ -47,15 +46,18 @@ export class ThemeDeciderService {
         this.myAppLogo = 'Nadin_Logo.svg';
         this.myAppLogo = 'Nadin_Logo.svg';
         this.myAppLogoFinished = 'Nadin_Logo.svg';
+        this.titleService.setTitle("Nadin Timer")
         break;
       case 'ldb':
         this.myAppLogo = 'ldb.png';
         this.myAppLogo = 'ldb-running.png';
         this.myAppLogoFinished = 'ldb-done.png';
+        this.titleService.setTitle("LDB Timer")
         break;
       case 'vw':
         this.myAppLogo = 'vw.png';
-        this.myAppLogoFinished = 'vw.png';
+        this.myAppLogoFinished = this.myAppLogo;
+        this.titleService.setTitle("VW Timer")
         break;
       default:
         console.error(`Unknown application ${this.application}`);
@@ -119,15 +121,15 @@ export class ThemeDeciderService {
         ];
       case 'ldb':
         return [
-          'Removing all users from production',
-          'Filing bugs from Lorem ipsum generator',
-          'Randomizing planned values',
-          'Ordering pizza for developers',
-          'Cooking coffee for next meeting',
-          'Adding new random name generator to user management',
-          'Throwing away permissions',
-          'Resetting test environment',
-          'Uploading new release 2.0 to production',
+          // 'Removing all users from production',
+          // 'Filing bugs from Lorem ipsum generator',
+          // 'Randomizing planned values',
+          // 'Ordering pizza for developers',
+          // 'Cooking coffee for next meeting',
+          // 'Adding new random name generator to user management',
+          // 'Throwing away permissions',
+          // 'Resetting test environment',
+          // 'Uploading new release 2.0 to production',
         ];
       default:
         console.error(`Unknown application ${this.application}`);

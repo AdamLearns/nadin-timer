@@ -18,7 +18,7 @@ export class RunTimerComponent implements OnInit, OnDestroy {
   public  startTime: number;
   private alarmTriggered: boolean;
 
-  constructor(private route: ActivatedRoute, private themeDeciderService: ThemeDeciderService) {
+  constructor(private route: ActivatedRoute, public themeDeciderService: ThemeDeciderService) {
   }
 
   public ngOnInit(): void {
