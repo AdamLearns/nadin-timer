@@ -81,7 +81,7 @@ export class ThemeDeciderService {
         this.titleService.setTitle("VW Timer")
         break;
       default:
-        console.error(`Unknown application ${this.application}`);
+        console.error(`Unknown application '${this.application}'`);
         break;
     }
     // console.log(this.application.toLowerCase());
@@ -142,18 +142,14 @@ export class ThemeDeciderService {
         ];
       case 'ldb':
         return [
-          // 'Removing all users from production',
-          // 'Filing bugs from Lorem ipsum generator',
-          // 'Randomizing planned values',
-          // 'Ordering pizza for developers',
-          // 'Cooking coffee for next meeting',
-          // 'Adding new random name generator to user management',
-          // 'Throwing away permissions',
-          // 'Resetting test environment',
-          // 'Uploading new release 2.0 to production',
+          '',
+        ];
+      case 'vw':
+        return [
+          '',
         ];
       default:
-        console.error(`Unknown application ${this.application}`);
+        console.error(`Unknown application '${this.application}'`);
         break;
     }
     return [];

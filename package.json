@@ -8,7 +8,6 @@
     "build:prod": "ng build --configuration production",
     "lint:prod": "ng lint",
     "prettier": "prettier -w src",
-    "//postinstall": "ngcc",
     "lint": "ng lint",
     "git": "run-s git:add git:commit git:push",
     "---": "-------------------",
