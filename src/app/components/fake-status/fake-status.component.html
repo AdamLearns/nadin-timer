@@ -1,4 +1,5 @@
 <span
+  *ngIf="currentText"
   (@updatedText.done)="setNewText()"
   [@updatedText]="currentText"
   class="fake-status"
