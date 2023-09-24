@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import * as introJs from 'intro.js';
+import {TranslocoService} from "@ngneat/transloco";
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class IntroJsService {
     customTimeExecuted: boolean,
   };
 
-  constructor() {
+  constructor(private translocoService: TranslocoService) {
     this._historicData = JSON.parse(localStorage.getItem('intro')!);
     if (!this._historicData) {
       this._historicData = {introExecuted: false, customTimeExecuted: false};
@@ -38,9 +39,9 @@ export class IntroJsService {
     this.introJS.setOptions({
       steps: [
         {
-          title: 'Zeit',
+          title: await this.toNullsafeString(this.translocoService.load('help.time.title').toPromise()),
           element: '#userguide-custom-input',
-          intro: 'Hier einfach die Anzahl der Minuten eingeben die gewünscht sind.',
+          intro: await this.toNullsafeString(this.translocoService.load('help.time.text').toPromise()),
         },
         {
           title: 'Start',
@@ -51,6 +52,14 @@ export class IntroJsService {
       ]
     })
       .start();
+  }
+
+  private async toNullsafeString(promise: Promise<any>): Promise<string> {
+    const value = (await promise);
+    if (value) {
+      return value.toString();
+    }
+    return "???";
   }
 
   public async firstUserOverview(): Promise<void> {

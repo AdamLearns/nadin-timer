@@ -1,17 +1,40 @@
 import {Injectable} from '@angular/core';
 import {Title} from "@angular/platform-browser";
+import {TranslocoService} from "@ngneat/transloco";
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class ThemeDeciderService {
-  constructor(private titleService: Title) {
-    this.myAppLogo = 'Nadin_Logo.svg';
+  get language(): string {
+    return this.myLanguage;
   }
 
-  private myAppLogo: string;
+  set language(value: string) {
+    this.myLanguage = value;
+    if (this.myLanguage){
+      this.translate.setActiveLang(this.myLanguage);
+    }
+  }
+
+  constructor(
+    private titleService: Title,
+    private translate: TranslocoService
+  ) {
+    this.myAppLogo = 'Nadin_Logo.svg';
+
+    const deviceLanguage = window?.navigator.language?.substring(
+      0,
+      2
+    )
+
+    this.translate.setActiveLang(deviceLanguage);
+  }
+
   public myAppLogoFinished: string = '';
+  private myLanguage: string = 'en';
+  private myAppLogo: string;
   private myApplication: string = '';
 
   get appLogoFinished(): string {

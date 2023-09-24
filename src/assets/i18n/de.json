@@ -1,0 +1,10 @@
+{
+  "min": "min",
+  "minutesFromNow": "{{mins}} Minuten ab jetzt",
+  "help": {
+    "time": {
+      "title": "Zeit",
+      "text": "Hier einfach die Anzahl der Minuten eingeben die gewünscht sind."
+    }
+  }
+}

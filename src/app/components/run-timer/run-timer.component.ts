@@ -28,6 +28,7 @@ export class RunTimerComponent implements OnInit, OnDestroy {
   public ngOnInit(): void {
     this.themeDeciderService.setIfValid(this.nullSafeString(this.route.snapshot.paramMap.get('theme')));
     this.themeDeciderService.application = this.nullSafeString(this.route.snapshot.paramMap.get('application'));
+    this.themeDeciderService.language = this.nullSafeString(this.route.snapshot.paramMap.get('lang'));
     this.targetTime = parseInt(this.nullSafeString(this.route.snapshot.paramMap.get('until')), 10);
     this.startTime = parseInt(this.nullSafeString(this.route.snapshot.paramMap.get('startTime')), 10);
 

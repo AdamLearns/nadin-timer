@@ -22,7 +22,10 @@
 <div class="back" matTooltip="zur Zeitauswahl">
   <a
     [routerLink]="['/']"
-    [queryParams]="{application: themeDeciderService.application}"
+    [queryParams]="{
+                       application: themeDeciderService.application,
+                       lang:themeDeciderService.language
+    }"
   >
     <fa-icon [icon]="['fas', 'history']"></fa-icon>
   </a>

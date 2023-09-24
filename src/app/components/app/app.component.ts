@@ -2,6 +2,7 @@ import {Component, OnDestroy, OnInit, ViewEncapsulation} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Subscription} from 'rxjs';
 import {ThemeDeciderService} from "../../services/theme-decider.service";
+import {TranslocoService} from "@ngneat/transloco";
 
 @Component({
   selector: 'app-root',
@@ -13,8 +14,8 @@ export class AppComponent implements OnInit, OnDestroy {
   private subscriptionParameter?: Subscription;
 
   constructor(private route: ActivatedRoute,
-              private themeDeciderService: ThemeDeciderService) {
-
+              private themeDeciderService: ThemeDeciderService,
+  ) {
   }
 
   public ngOnDestroy(): void {
@@ -29,6 +30,7 @@ export class AppComponent implements OnInit, OnDestroy {
           // console.log(params);
           this.themeDeciderService.setIfValid(params["theme"] as string);
           this.themeDeciderService.application = params["application"] as string;
+          this.themeDeciderService.language = params["lang"] as string;
         }
       );
   }

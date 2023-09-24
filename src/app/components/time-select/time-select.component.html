@@ -1,138 +1,142 @@
-<div class="all-times"
-     id="userguide-overview"
->
-  <div class="logo">
-    <app-nadin-logo></app-nadin-logo>
-  </div>
-  <div class="time-absolute"
-       id="userguide-absolute-times"
+<app-settings-toolbar></app-settings-toolbar>
+<ng-container *transloco="let translate">
+
+  <div class="all-times"
+       id="userguide-overview"
   >
-    <button
-      *ngIf="!showCustomPanel && showDebug"
-      mat-raised-button
-      matTooltip="5 minuten ab jetzt"
-      (click)="startTimerMinutes(0.1)"
-      class="time"
-    >
-      DEV
-    </button>
 
-    <button
-      *ngIf="!showCustomPanel"
-      mat-raised-button
-      matTooltip="5 minuten ab jetzt"
-      (click)="startTimerMinutes(5)"
-      class="time"
+    <div class="logo">
+      <app-nadin-logo></app-nadin-logo>
+    </div>
+    <div class="time-absolute"
+         id="userguide-absolute-times"
     >
-      5min
-    </button>
+      <button
+        *ngIf="!showCustomPanel && showDebug"
+        mat-raised-button
+        (click)="startTimerMinutes(0.1)"
+        class="time"
+      >
+        DEV
+      </button>
 
-    <button
-      *ngIf="!showCustomPanel"
-      mat-raised-button
-      matTooltip="10 minuten ab jetzt"
-      (click)="startTimerMinutes(10)"
-      class="time"
-    >
-      10min
-    </button>
+      <button
+        *ngIf="!showCustomPanel"
+        mat-raised-button
+        matTooltip="{{translate('minutesFromNow',{'mins':5})}}"
+        (click)="startTimerMinutes(5)"
+        class="time"
+      >
+        5{{translate('min')}}
+      </button>
 
-    <button
-      mat-raised-button
-      matTooltip="15 minuten ab jetzt"
-      (click)="startTimerMinutes(15)"
-      class="time"
-      *ngIf="!showCustomPanel"
-    >
-      15min
-    </button>
+      <button
+        *ngIf="!showCustomPanel"
+        mat-raised-button
+        matTooltip="{{translate('minutesFromNow',{'mins':10})}}"
+        (click)="startTimerMinutes(10)"
+        class="time"
+      >
+        10{{translate('min')}}
+      </button>
 
-    <div
-      *ngIf="showCustomPanel"
-      class="custom"
+      <button
+        mat-raised-button
+        matTooltip="{{translate('minutesFromNow',{'mins':15})}}"
+        (click)="startTimerMinutes(15)"
+        class="time"
+        *ngIf="!showCustomPanel"
+      >
+        15{{translate('min')}}
+      </button>
+
+      <div
+        *ngIf="showCustomPanel"
+        class="custom"
+      >
+        <button
+          mat-raised-button
+          matTooltip="{{translate('minutesFromNow',{'mins':customMinutes})}}"
+          (click)="startTimerMinutes(customMinutes)"
+          class="custom time"
+          id="userguide-custom-start"
+        >
+          {{customMinutes}}{{translate('min')}}
+        </button>
+
+        <mat-form-field
+          appearance="fill"
+          class="middle minutes"
+          id="userguide-custom-input"
+        >
+          <input matInput
+                 type="number"
+                 [value]="''+customMinutes"
+                 (keyup)="customChanged($event)"
+                 min="1"
+          >
+          <mat-label>Minuten</mat-label>
+        </mat-form-field>
+      </div>
+
+      <button
+        mat-raised-button
+        matTooltip="custom"
+        (click)="toggleCustomTime()"
+        class="time"
+        id="userguide-custom-times"
+      >
+        🛠 ??:??
+      </button>
+    </div>
+
+    <div class="time-relative"
+         if="time-relative"
+         id="userguide-relative-times"
     >
       <button
         mat-raised-button
-        matTooltip="starte mit {{customMinutes}}min"
-        (click)="startTimerMinutes(customMinutes)"
-        class="custom time"
-        id="userguide-custom-start"
+        matTooltip="bis Viertel nach"
+        (click)="untilQuarterPast()"
+        class="time"
       >
-        {{customMinutes}}min
+        🕒 :15
       </button>
 
-      <mat-form-field
-        appearance="fill"
-        class="middle minutes"
-        id="userguide-custom-input"
+      <button
+        mat-raised-button
+        matTooltip="bis Halb"
+        (click)="untilHalfPast()"
+        class="time"
       >
-        <input matInput
-               type="number"
-               [value]="customMinutes"
-               (keyup)="customChanged($event)"
-               min="1"
-        >
-        <mat-label>Minuten</mat-label>
-      </mat-form-field>
+        🕞 :30
+      </button>
+
+      <button
+        mat-raised-button
+        matTooltip="bis Viertel vor"
+        (click)="untilQuarterBefore()"
+        class="time"
+      >
+        🕘 :45
+      </button>
+
+      <button
+        mat-raised-button
+        matTooltip="bis Voll"
+        (click)="untilFull()"
+        class="time"
+      >
+        🕛 :00
+      </button>
+      <!--    <button-->
+      <!--      mat-raised-button-->
+      <!--      matTooltip="TEST"-->
+      <!--      (click)="someSeconds()"-->
+      <!--      class="time"-->
+      <!--    >-->
+      <!--      !!!!TEST!!!!-->
+      <!--    </button>-->
     </div>
-
-    <button
-      mat-raised-button
-      matTooltip="custom"
-      (click)="toggleCustomTime()"
-      class="time"
-      id="userguide-custom-times"
-    >
-      🛠 ??:??
-    </button>
   </div>
-
-  <div class="time-relative"
-       if="time-relative"
-       id="userguide-relative-times"
-  >
-    <button
-      mat-raised-button
-      matTooltip="bis Viertel nach"
-      (click)="untilQuarterPast()"
-      class="time"
-    >
-      🕒 :15
-    </button>
-
-    <button
-      mat-raised-button
-      matTooltip="bis Halb"
-      (click)="untilHalfPast()"
-      class="time"
-    >
-      🕞 :30
-    </button>
-
-    <button
-      mat-raised-button
-      matTooltip="bis Viertel vor"
-      (click)="untilQuarterBefore()"
-      class="time"
-    >
-      🕘 :45
-    </button>
-
-    <button
-      mat-raised-button
-      matTooltip="bis Voll"
-      (click)="untilFull()"
-      class="time"
-    >
-      🕛 :00
-    </button>
-    <!--    <button-->
-    <!--      mat-raised-button-->
-    <!--      matTooltip="TEST"-->
-    <!--      (click)="someSeconds()"-->
-    <!--      class="time"-->
-    <!--    >-->
-    <!--      !!!!TEST!!!!-->
-    <!--    </button>-->
-  </div>
-</div>
+</ng-container>
