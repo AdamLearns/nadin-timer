@@ -12,14 +12,12 @@ RUN apt update -y && \
 
 WORKDIR /project
 ADD . /project
-RUN sed -i "s/AA\.BB\.CCCC/$(date +"%Y%m%d_%H%M%S")/" /project/src/environments/environment.prod.ts
-RUN sed -i "s/AA\.BB\.CCCC/$(date +"%Y%m%d_%H%M%S")/" /project/src/environments/environment.ts
+RUN sed -i "s/AA\.BB\.CCCC/$(date +"%d.%m.%Y_%H:%M:%S")/" /project/src/environments/environment.prod.ts
+RUN sed -i "s/AA\.BB\.CCCC/$(date +"%d.%m.%Y_%H:%M:%S")/" /project/src/environments/environment.ts
 RUN npm install --no-audi && \
     npm run lint:prod && \
     npm run build:prod && \
     rm -r node_modules
-
-RUN cat src/environments/environment.ts
 
 FROM nginx:mainline-alpine
 WORKDIR /project
