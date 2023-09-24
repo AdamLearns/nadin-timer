@@ -2,6 +2,7 @@ import {Component, OnDestroy, OnInit, ViewEncapsulation} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Subscription} from 'rxjs';
 import {ThemeDeciderService} from "../../services/theme-decider.service";
+import {ShepherdService} from "angular-shepherd";
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,10 @@ import {ThemeDeciderService} from "../../services/theme-decider.service";
 export class AppComponent implements OnInit, OnDestroy {
   private subscriptionParameter?: Subscription;
 
+  //NOTE: It is highly recommended to inject ShepherdService into your app.component.ts.
+  // Injecting it at the app level ensures you only create one instance of Shepherd.
   constructor(private route: ActivatedRoute,
+              private shepherdService: ShepherdService,
               private themeDeciderService: ThemeDeciderService,
   ) {
   }

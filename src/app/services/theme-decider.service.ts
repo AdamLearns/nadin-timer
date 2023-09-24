@@ -84,8 +84,8 @@ export class ThemeDeciderService {
         console.error(`Unknown application ${this.application}`);
         break;
     }
-    console.log(this.application.toLowerCase());
-    console.log(this.myAppLogo);
+    // console.log(this.application.toLowerCase());
+    // console.log(this.myAppLogo);
   }
 
 

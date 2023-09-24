@@ -1,110 +1,72 @@
 import {Injectable} from '@angular/core';
-import * as introJs from 'intro.js';
-import {TranslocoService} from "@ngneat/transloco";
+import {ShepherdService} from 'angular-shepherd';
+import {defaultStepOptions, stepsCustomTimer, stepsFirstUsage, stepsLanguage} from "./help-steps";
+import {Steps} from "./steps";
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class IntroJsService {
-  private introJS?: introJs.IntroJs;
-  // tslint:disable-next-line:variable-name
-  private _historicData: {
-    introExecuted: boolean,
-    customTimeExecuted: boolean,
-  };
+    private _historicData: {
+        languageExecuted: boolean;
+        introExecuted: boolean,
+        customTimeExecuted: boolean,
+    };
 
-  constructor(private translocoService: TranslocoService) {
-    this._historicData = JSON.parse(localStorage.getItem('intro')!);
-    if (!this._historicData) {
-      this._historicData = {introExecuted: false, customTimeExecuted: false};
-    }
-  }
-
-  get historicData(): { introExecuted: boolean; customTimeExecuted: boolean } {
-    return this._historicData;
-  }
-
-  public async featureCustomTime(): Promise<void> {
-    this.introJS = introJs();
-
-    this.introJS.onexit(() => {
-      this._historicData.customTimeExecuted = true;
-      this.saveHistoricData();
-    });
-
-    if (this._historicData.customTimeExecuted) {
-      return;
-    }
-
-    this.introJS.setOptions({
-      steps: [
-        {
-          title: await this.toNullsafeString(this.translocoService.load('help.time.title').toPromise()),
-          element: '#userguide-custom-input',
-          intro: await this.toNullsafeString(this.translocoService.load('help.time.text').toPromise()),
-        },
-        {
-          title: 'Start',
-          element: '#userguide-custom-start',
-          intro: 'Nachdem die Zeit eingestellt ist, kann der Wert mit [Enter] übernommen werden ' +
-            'und mit oder diesem Knopf gestartet werden.',
+    constructor() {
+        this._historicData = JSON.parse(localStorage.getItem('intro')!);
+        if (!this._historicData) {
+            this._historicData = {introExecuted: false, languageExecuted: false, customTimeExecuted: false};
         }
-      ]
-    })
-      .start();
-  }
-
-  private async toNullsafeString(promise: Promise<any>): Promise<string> {
-    const value = (await promise);
-    if (value) {
-      return value.toString();
-    }
-    return "???";
-  }
-
-  public async firstUserOverview(): Promise<void> {
-    this.introJS = introJs();
-
-    this.introJS.onexit(() => {
-      this._historicData.introExecuted = true;
-      this.saveHistoricData();
-    });
-
-    if (this._historicData.introExecuted) {
-      return;
     }
 
-    this.introJS.setOptions({
-      steps: [
-        {
-          title: 'Hallo!',
-          element: '#userguide-overview',
-          intro: 'Willkommen beim Nadin Timer,<br><br>eine schnelle Möglichkeit für unterhaltsame Meetingpausen.',
-        },
-        {
-          title: 'Minuten',
-          element: '#userguide-absolute-times',
-          intro:
-            'Hier kannst du die gewünschte Zeit in minuten auswählen.<br>Also z.B. "für 5min".',
-        },
-        {
-          title: 'Uhrzeit',
-          element: '#userguide-relative-times',
-          intro:
-            'Hier kannst du die gewünschte Zeit bis zu einem Zeitpunkt auswählen.<br> Also z.B. "bis halb".',
-        },
-        {
-          title: 'Eigenes',
-          element: '#userguide-custom-times',
-          intro: 'Hier kannst du eigene Zeitäume eingeben wenn die vorgeschlagenen nicht ausreichen.',
+    public helpIntro(): void {
+        if (this._historicData.introExecuted) {
+            return;
         }
-      ]
-    })
-      .start();
-  }
+        const shepherdService = new ShepherdService();
+        shepherdService.defaultStepOptions = defaultStepOptions;
+        shepherdService.modal = true;
+        shepherdService.confirmCancel = false;
+        shepherdService.addSteps(stepsFirstUsage(this, Steps.INTRO));
+        shepherdService.start();
+    }
 
-  private saveHistoricData() {
-    console.log('saveHistoricData');
-    localStorage.setItem('intro', JSON.stringify(this._historicData));
-  }
+    public helpCustomTime(): void {
+        if (this._historicData.customTimeExecuted) {
+            return;
+        }
+        const shepherdService = new ShepherdService();
+        shepherdService.defaultStepOptions = defaultStepOptions;
+        shepherdService.modal = true;
+        shepherdService.confirmCancel = false;
+        shepherdService.addSteps(stepsCustomTimer(this, Steps.CUSTOM_TIMER));
+        shepherdService.start();
+    }
+
+    public helpLanguage(): void {
+        if (this._historicData.languageExecuted) {
+            return;
+        }
+        const shepherdService = new ShepherdService();
+        shepherdService.defaultStepOptions = defaultStepOptions;
+        shepherdService.modal = true;
+        shepherdService.confirmCancel = false;
+        shepherdService.addSteps(stepsLanguage(this, Steps.LANGUAGE));
+        shepherdService.start();
+    }
+
+    markAsDone(step: Steps) {
+        if (step === Steps.INTRO) {
+            this._historicData.introExecuted = true;
+            // this.helpCustom();
+        } else if (step === Steps.LANGUAGE) {
+            this._historicData.languageExecuted = true;
+        } else if (step === Steps.CUSTOM_TIMER) {
+            this._historicData.customTimeExecuted = true;
+        } else {
+            throw new Error("unknown step '" + Steps[step] + "'")
+        }
+        localStorage.setItem('intro', JSON.stringify(this._historicData));
+    }
 }

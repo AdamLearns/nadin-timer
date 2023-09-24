@@ -1,4 +1,6 @@
-<app-settings-toolbar></app-settings-toolbar>
+<app-settings-toolbar
+  id="userguide-language"
+></app-settings-toolbar>
 <ng-container *transloco="let translate">
 
   <div class="all-times"
@@ -65,9 +67,9 @@
         </button>
 
         <mat-form-field
+          id="userguide-custom-input"
           appearance="fill"
           class="middle minutes"
-          id="userguide-custom-input"
         >
           <input matInput
                  type="number"

@@ -1,21 +1,31 @@
-import {Component} from '@angular/core';
+import {AfterViewInit, Component} from '@angular/core';
 import {TranslocoService} from "@ngneat/transloco";
+import {IntroJsService} from "../services/intro-js.service";
 
 @Component({
-  selector: 'app-settings-toolbar',
-  templateUrl: './settings-toolbar.component.html',
-  styleUrls: ['./settings-toolbar.component.scss']
+    selector: 'app-settings-toolbar',
+    templateUrl: './settings-toolbar.component.html',
+    styleUrls: ['./settings-toolbar.component.scss']
 })
-export class SettingsToolbarComponent {
-  constructor(private translate: TranslocoService) {
+export class SettingsToolbarComponent implements AfterViewInit {
+    constructor(
+        private translate: TranslocoService,
+        private introService: IntroJsService
+    ) {
+    }
 
-  }
 
-  public isLanguage(target: string): boolean {
-    return this.translate.getActiveLang() === target;
-  }
+    public ngAfterViewInit(): void {
+        // noinspection JSIgnoredPromiseFromCall
+        this.introService.helpLanguage();
+    }
 
-  public changeLanguage(target: string): void {
-    this.translate.setActiveLang(target);
-  }
+
+    public isLanguage(target: string): boolean {
+        return this.translate.getActiveLang() === target;
+    }
+
+    public changeLanguage(target: string): void {
+        this.translate.setActiveLang(target);
+    }
 }
