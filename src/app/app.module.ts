@@ -16,6 +16,7 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {MatTooltipModule} from "@angular/material/tooltip";
+import { BuildVersionDisplayComponent } from './components/build-version-display/build-version-display.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import {MatTooltipModule} from "@angular/material/tooltip";
     NadinLogoComponent,
     FakeStatusComponent,
     TimerProgressComponent,
+    BuildVersionDisplayComponent,
   ],
   imports: [
     MatFormFieldModule,

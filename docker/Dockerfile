@@ -5,17 +5,21 @@ RUN mkdir -p /project/dist/nadin-timer
 RUN apt update -y && \
     apt install -y --no-install-recommends --no-install-suggests \
     nginx \
+    sed \
     ca-certificates &&\
     rm -rf /var/cache/apt/ &&\
     rm -rf /var/lib/apt/lists/*
 
 WORKDIR /project
 ADD . /project
+RUN sed -i "s/AA\.BB\.CCCC/$(date +"%Y%m%d_%H%M%S")/" /project/src/environments/environment.prod.ts
+RUN sed -i "s/AA\.BB\.CCCC/$(date +"%Y%m%d_%H%M%S")/" /project/src/environments/environment.ts
 RUN npm install --no-audi && \
     npm run lint:prod && \
     npm run build:prod && \
     rm -r node_modules
 
+RUN cat src/environments/environment.ts
 
 FROM nginx:mainline-alpine
 WORKDIR /project
