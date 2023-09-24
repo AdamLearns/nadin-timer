@@ -1,13 +1,7 @@
-import {OnDestroy, Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import * as _ from 'lodash';
 import {Subscription} from 'rxjs/internal/Subscription';
-import {
-  animate,
-  keyframes,
-  style,
-  transition,
-  trigger,
-} from '@angular/animations';
+import {animate, keyframes, style, transition, trigger,} from '@angular/animations';
 import {ThemeDeciderService} from '../../services/theme-decider.service';
 
 @Component({
@@ -29,7 +23,7 @@ import {ThemeDeciderService} from '../../services/theme-decider.service';
 export class FakeStatusComponent implements OnInit, OnDestroy {
   private usedTexts: string[] = [];
   private tickerTimer?: Subscription;
-  public currentText:string|undefined = '';
+  public currentText: string | undefined = '';
 
   constructor(private themeDeciderService: ThemeDeciderService) {
   }

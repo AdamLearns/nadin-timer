@@ -14,15 +14,15 @@ export class RunTimerComponent implements OnInit, OnDestroy {
   public seconds = '00';
   public minutes = '00';
   private timerTimer?: Subscription;
-  public targetTime: number=0;
-  public  startTime: number=0;
-  private alarmTriggered: boolean=false;
+  public targetTime: number = 0;
+  public startTime: number = 0;
+  private alarmTriggered: boolean = false;
 
   constructor(private route: ActivatedRoute, public themeDeciderService: ThemeDeciderService) {
   }
 
   public nullSafeString(value: string | null): string {
-    return value?value:'';
+    return value ? value : '';
   }
 
   public ngOnInit(): void {

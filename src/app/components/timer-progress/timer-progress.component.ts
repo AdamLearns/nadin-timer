@@ -1,6 +1,5 @@
 import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {Subscription, timer} from 'rxjs';
-import {ThemeDeciderService} from "../../services/theme-decider.service";
 
 @Component({
   selector: 'app-timer-progress',
@@ -9,16 +8,16 @@ import {ThemeDeciderService} from "../../services/theme-decider.service";
 })
 export class TimerProgressComponent implements OnInit, OnDestroy {
   @Input()
-  public fromTime: number=0;
+  public fromTime: number = 0;
 
-  public duration: number=100;
-  public progressPercentage: number=0;
+  public duration: number = 100;
+  public progressPercentage: number = 0;
 
   @Input()
-  public toTime: number=1000;
-  private timerTimer?: Subscription=undefined;
+  public toTime: number = 1000;
+  private timerTimer?: Subscription = undefined;
 
-  constructor(private themeDeciderService: ThemeDeciderService) {
+  constructor() {
   }
 
   public ngOnDestroy(): void {
@@ -31,7 +30,7 @@ export class TimerProgressComponent implements OnInit, OnDestroy {
     this.duration = this.toTime - this.fromTime;
     this.timerTimer = timer(0, 350).subscribe(() => {
       //percentage with 1 digit
-      this.progressPercentage = Math.round(1000 - ((this.toTime - Date.now()) / this.duration)*1000)/10;
+      this.progressPercentage = Math.round(1000 - ((this.toTime - Date.now()) / this.duration) * 1000) / 10;
     });
   }
 

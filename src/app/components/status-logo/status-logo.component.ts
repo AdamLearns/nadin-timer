@@ -1,12 +1,5 @@
-import { Component, Input } from '@angular/core';
-import {
-  animate,
-  keyframes,
-  state,
-  style,
-  transition,
-  trigger,
-} from '@angular/animations';
+import {Component, Input} from '@angular/core';
+import {animate, keyframes, state, style, transition, trigger,} from '@angular/animations';
 import {ThemeDeciderService} from '../../services/theme-decider.service';
 
 @Component({
@@ -19,21 +12,22 @@ import {ThemeDeciderService} from '../../services/theme-decider.service';
       state('uneven', style({})),
       state('even', style({})),
       transition('* => *', [
-        animate('0.2s', keyframes([style({ transform: 'scale(0.25)' })])),
-        animate('0.2s', keyframes([style({ transform: 'scale(0.2)' })])),
+        animate('0.2s', keyframes([style({transform: 'scale(0.25)'})])),
+        animate('0.2s', keyframes([style({transform: 'scale(0.2)'})])),
       ]),
     ]),
   ],
 })
 export class StatusLogoComponent {
   @Input()
-  public seconds: string='';
+  public seconds: string = '';
   @Input()
-  public minutes: string='';
+  public minutes: string = '';
 
 
   constructor(private themeDeciderService: ThemeDeciderService) {
   }
+
   public isDone(): boolean {
     return this.seconds === '00' && this.minutes === '00';
   }

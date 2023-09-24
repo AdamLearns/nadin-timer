@@ -5,7 +5,7 @@ import * as introJs from 'intro.js';
   providedIn: 'root'
 })
 export class IntroJsService {
-  private introJS?:introJs.IntroJs;
+  private introJS?: introJs.IntroJs;
   // tslint:disable-next-line:variable-name
   private _historicData: {
     introExecuted: boolean,

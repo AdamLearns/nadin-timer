@@ -1,15 +1,16 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { TimeSelectComponent } from './components/time-select/time-select.component';
-import { RunTimerComponent } from './components/run-timer/run-timer.component';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {TimeSelectComponent} from './components/time-select/time-select.component';
+import {RunTimerComponent} from './components/run-timer/run-timer.component';
 
 const routes: Routes = [
-  { path: '', component: TimeSelectComponent, pathMatch: 'full' },
-  { path: 'run', component: RunTimerComponent },
+  {path: '', component: TimeSelectComponent, pathMatch: 'full'},
+  {path: 'run', component: RunTimerComponent},
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { useHash: true })],
+  imports: [RouterModule.forRoot(routes, {useHash: true})],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule {
+}

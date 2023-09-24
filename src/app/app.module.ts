@@ -6,10 +6,7 @@ import {StatusLogoComponent} from './components/status-logo/status-logo.componen
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {TimeSelectComponent} from './components/time-select/time-select.component';
 import {RunTimerComponent} from './components/run-timer/run-timer.component';
-import {
-  FaIconLibrary,
-  FontAwesomeModule,
-} from '@fortawesome/angular-fontawesome';
+import {FaIconLibrary, FontAwesomeModule,} from '@fortawesome/angular-fontawesome';
 import {faBullhorn, faClock, faHistory} from '@fortawesome/free-solid-svg-icons';
 import {NadinLogoComponent} from './components/nadin-logo/nadin-logo.component';
 import {FakeStatusComponent} from './components/fake-status/fake-status.component';

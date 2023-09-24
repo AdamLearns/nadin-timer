@@ -26,7 +26,7 @@ export class AppComponent implements OnInit, OnDestroy {
   public ngOnInit(): void {
     this.subscriptionParameter = this.route.queryParams
       .subscribe((params) => {
-        // console.log(params);
+          // console.log(params);
           this.themeDeciderService.setIfValid(params["theme"] as string);
           this.themeDeciderService.application = params["application"] as string;
         }
