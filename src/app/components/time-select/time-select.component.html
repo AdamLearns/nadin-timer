@@ -75,6 +75,7 @@
                  type="number"
                  [value]="''+customMinutes"
                  (keyup)="customChanged($event)"
+                 (click)="customChanged($event)"
                  min="1"
           >
           <mat-label>Minuten</mat-label>
