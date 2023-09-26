@@ -8,5 +8,4 @@ import {environment} from "../../../environments/environment";
 })
 export class BuildVersionDisplayComponent {
   public buildDate:string=environment.buildDateString;
-
 }
