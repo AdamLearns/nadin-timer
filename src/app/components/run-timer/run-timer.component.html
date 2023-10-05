@@ -5,13 +5,23 @@
 ></app-timer-progress>
 
 <div class="timer">
-  <span class="time minutes">{{ minutes }}</span>
+  <span class="time minutes"
+        [ngClass]="{
+        'close-to-end':isCloseToEnd(),
+        'near-to-end':isNearToEnd()
+        }"
+  >{{ minutes }}</span>
   <app-status-logo
     class="divider-logo"
     [seconds]="seconds"
     [minutes]="minutes"
   ></app-status-logo>
-  <span class="time seconds">{{ seconds }}</span>
+  <span class="time seconds"
+        [ngClass]="{
+        'close-to-end':isCloseToEnd(),
+        'near-to-end':isNearToEnd()
+        }"
+  >{{ seconds }}</span>
 </div>
 
 <app-fake-status

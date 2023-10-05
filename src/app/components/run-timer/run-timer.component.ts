@@ -81,6 +81,14 @@ export class RunTimerComponent implements OnInit, OnDestroy {
     return chance().weighted(['whistle', 'alarm', 'bell'], [1, 5, 2]);
   }
 
+  public isCloseToEnd(): boolean {
+    return +this.minutes === 0;
+  }
+
+  public isNearToEnd(): boolean {
+    return +this.minutes === 1;
+  }
+
   public ngOnDestroy(): void {
     if (this.timerTimer) {
       this.timerTimer.unsubscribe();
