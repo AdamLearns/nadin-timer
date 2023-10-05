@@ -42,10 +42,30 @@
   display: inline-block;
 }
 
-.near-to-end{
+.near-to-end {
   text-shadow: 10px 10px 10px rgba(255, 89, 0, 0.56);
 }
 
-.close-to-end{
+.close-to-end {
   text-shadow: 10px 10px 10px #ff000090;
+}
+
+.blink {
+  animation-name: blink-animation;
+  animation-duration: 2s;
+  animation-timing-function: ease-out;
+  animation-delay: 0s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-fill-mode: none;
+  animation-play-state: running;
+}
+
+@keyframes blink-animation {
+  0% {
+    text-shadow: unset;
+  }
+  100% {
+    text-shadow: 0 0 0.2em #ff0000;
+  }
 }

@@ -7,6 +7,7 @@
 <div class="timer">
   <span class="time minutes"
         [ngClass]="{
+        'blink':isDone(),
         'close-to-end':isCloseToEnd(),
         'near-to-end':isNearToEnd()
         }"
@@ -18,6 +19,7 @@
   ></app-status-logo>
   <span class="time seconds"
         [ngClass]="{
+        'blink':isDone(),
         'close-to-end':isCloseToEnd(),
         'near-to-end':isNearToEnd()
         }"

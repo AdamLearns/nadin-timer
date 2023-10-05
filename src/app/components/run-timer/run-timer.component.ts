@@ -3,11 +3,23 @@ import {ActivatedRoute} from '@angular/router';
 import {Subscription, timer} from 'rxjs';
 import * as chance from 'chance';
 import {ThemeDeciderService} from "../../services/theme-decider.service";
+import {animate, keyframes, state, style, transition, trigger} from "@angular/animations";
 
 @Component({
   selector: 'app-run-timer',
   templateUrl: './run-timer.component.html',
   styleUrls: ['./run-timer.component.scss'],
+  animations: [
+    trigger('startTimer', [
+      // ...
+      state('true', style({})),
+      state('false', style({})),
+      transition('* => *', [
+        animate('0s', keyframes([style({transform: 'translateX(100%)'})])),
+        animate('30s', keyframes([style({transform: 'translateX(-20%)'})])),
+      ]),
+    ])
+  ]
 })
 export class RunTimerComponent implements OnInit, OnDestroy {
 
@@ -82,11 +94,15 @@ export class RunTimerComponent implements OnInit, OnDestroy {
   }
 
   public isCloseToEnd(): boolean {
-    return +this.minutes === 0;
+    return !this.isDone() && (+this.minutes === 0);
+  }
+
+  public isDone(): boolean {
+    return (+this.minutes + +this.seconds === 0);
   }
 
   public isNearToEnd(): boolean {
-    return +this.minutes === 1;
+    return !this.isDone() && (+this.minutes === 1);
   }
 
   public ngOnDestroy(): void {
