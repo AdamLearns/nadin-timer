@@ -75,11 +75,11 @@ export class ThemeDeciderService {
         this.myAppLogoFinished = 'ldb-done.png';
         this.titleService.setTitle("LDB Timer")
         break;
-      case 'porsche':
-        this.myAppLogo = 'porsche.png';
-        this.myAppLogo = 'porsche.png';
-        this.myAppLogoFinished = 'porsche.png';
-        this.titleService.setTitle("Porsche Timer")
+      case 'poi':
+        this.myAppLogo = 'poi.jpg';
+        this.myAppLogo = 'poi.jpg';
+        this.myAppLogoFinished = 'poi.jpg';
+        this.titleService.setTitle("Porsche Informatik Timer")
         break;
       case 'vw':
         this.myAppLogo = 'vw.png';
@@ -154,7 +154,7 @@ export class ThemeDeciderService {
         return [
           '',
         ];
-      case 'porsche':
+      case 'poi':
         return [
           '',
         ];
