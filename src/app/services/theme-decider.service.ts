@@ -86,6 +86,11 @@ export class ThemeDeciderService {
         this.myAppLogoFinished = this.myAppLogo;
         this.titleService.setTitle("VW Timer")
         break;
+      case 'gremlins':
+        this.myAppLogo = 'gremlins.png';
+        this.myAppLogoFinished = this.myAppLogo;
+        this.titleService.setTitle("Gremlins Timer")
+        break;
       default:
         console.error(`Unknown application '${this.application}'`);
         break;
