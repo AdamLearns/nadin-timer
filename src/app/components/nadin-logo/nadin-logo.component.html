@@ -4,11 +4,20 @@
        alt="nadin logo"
        class="app-logo"
   />
-
+{{getAppLogo()}}
   <div class="logo" [ngSwitch]="getTheme()">
     <div *ngSwitchCase="'Winter'">
       <img src="../../assets/christmas-hat-png.png" alt="nadin logo"
            class="christmas-hat"
+           *ngIf="getAppLogo() === 'Nadin_Logo.svg'"
+      />
+      <img src="../../assets/christmas-hat-png.png" alt="nadin logo"
+           class="christmas-hat-poi"
+           *ngIf="getAppLogo() === 'poi.jpg'"
+      />
+      <img src="../../assets/christmas-hat-png.png" alt="nadin logo"
+           class="christmas-hat-vw"
+           *ngIf="getAppLogo() === 'vw.png'"
       />
     </div>
     <div *ngSwitchCase="'Spring'">
