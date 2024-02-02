@@ -58,7 +58,7 @@ export class RunTimerComponent implements OnInit, OnDestroy {
         }
       } else {
         this.seconds = '' + date.getSeconds().toString().padStart(2, '0');
-        this.minutes = '' + date.getMinutes().toString().padStart(2, '0');
+        this.minutes = '' + (date.getMinutes() + (date.getHours() - 1) * 60).toString().padStart(2, '0');
       }
     });
   }
